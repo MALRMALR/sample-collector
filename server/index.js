@@ -9,8 +9,12 @@ const PORT = 3000;
 * Automatically parse urlencoded body content from incoming requests and place it
 * in req.body
 */
+// parse incoming requests as URL encoded data
 app.use(express.urlencoded({ extended: true }));
+// recognize incoming req objects as JSON objects
+app.use(express.json());
 
+// '/api' routes
 app.use('/api', apiRouter);
 
 // routes

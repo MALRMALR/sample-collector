@@ -10,4 +10,8 @@ userController.createUser = (req, res, next) => {
 
 }
 
+userController.retrieveAccessToken = (req, res, next) => {
+  return next();
+}
+
 module.exports = userController;
