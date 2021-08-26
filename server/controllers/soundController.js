@@ -10,7 +10,6 @@ soundController.searchSamples = async (req, res, next) => {
     // console.log(reqHeaders);
     const url = `https://freesound.org/apiv2/search/text/?query=${req.body.query}`;
     console.log(url);
-    
     await fetch(url, {
       method: 'GET',
       headers: {

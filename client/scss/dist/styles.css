@@ -1,0 +1,63 @@
+body {
+  background-color: #4e5340;
+  color: #E2E8DD;
+  font-family: sans-serif;
+}
+
+.sample-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.sample-card {
+  border: 2px solid #B7D1DA;
+  background-color: #697268;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sample-card li {
+  word-wrap: break-word;
+}
+
+.sample-card button, #search-button {
+  background-color: #95A3A4;
+  color: #E2E8DD;
+  cursor: pointer;
+  margin-right: 9px;
+  border-radius: 4px;
+  transition: background-color 0.1s ease-in;
+  padding: 4px 10px;
+  border: 1px solid #fff;
+}
+
+#save-button {
+  background-color: #E2E8DD;
+  color: #95A3A4;
+}
+
+#load-button {
+  background-color: #95A3A4;
+  color: #E2E8DD;
+}
+
+.sample-card #save-button:hover {
+  background-color: #4a5556;
+  color: white;
+}
+
+.sample-card #load-button:hover, #search-button:hover {
+  background-color: #E2E8DD;
+  color: #323a3b;
+}
+
+#search {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+}
+
+#search-button {
+  padding: 10px 20px;
+}

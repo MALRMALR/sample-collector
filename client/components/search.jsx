@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Sample from './Sample.jsx';
 
 class Search extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class Search extends Component {
         console.log('client')
         console.log(json)
         this.setState({
+          isLoaded: true,
           items: json.results
         })
       })
@@ -46,8 +48,7 @@ class Search extends Component {
   render() {
       const { items } = this.state;
       let searchResults = items.map((item, index) => {
-        // build out as a component
-        return <li key={index}>{item.id} - {item.name} - uploader: {item.username}</li>
+        return <Sample key={index} id={item.id} name={item.name} username={item.username} />
       });
       return(
         <div>
@@ -56,11 +57,11 @@ class Search extends Component {
               Search:
               <input type="text" name="search" id="search" />
             </label>
-            <input type="submit" value="Submit" onClick={(e) => this.searchFreesound(e)} />
+            <input type="submit" value="Submit" id="search-button" onClick={(e) => this.searchFreesound(e)} />
           <h2>Search Results: </h2>
-            <ul>
+            <div className="sample-card-container">
               {searchResults}
-            </ul>
+            </div>
         </div>
       )
     // }

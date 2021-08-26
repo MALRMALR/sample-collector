@@ -9,6 +9,8 @@ import {
 } from 'react-router-dom';
 import Landing from './components/Landing.jsx';
 import Search from './components/Search.jsx';
+// import styles
+import styles from './scss/styles.scss';
 
 function App() {
   return (
