@@ -35,7 +35,7 @@ class Saved extends Component {
           name={sample.name}
           previews={sample.previews}
           url={sample.url}
-          download={sample.download}
+          download={sample.download_url}
           type={sample.type}
           filesize={sample.file_size}
           bitrate={sample.bitrate}
@@ -46,6 +46,7 @@ class Saved extends Component {
           avg_rating={sample.avg_rating}
           geotag={sample.geotag}
           description={sample.description}
+          username={sample.username}
         />
       )
     })

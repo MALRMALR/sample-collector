@@ -30,8 +30,8 @@ class Landing extends Component {
       // return <Redirect to='/search' />;
       return (
         <div>
-          <Saved />
           <Search cookie={this.state.cookie} />
+          <Saved />
         </div>
       )
     }

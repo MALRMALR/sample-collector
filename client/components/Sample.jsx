@@ -6,8 +6,8 @@ class Sample extends Component {
     this.saveSample = this.saveSample.bind(this);
   }
 
-  saveSample(id, name, url, username, download_url, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews) {
-    const body = {id, name, url, username, download_url, description, type, duration, bitdepth, bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews}
+  saveSample(id, name, url, username, download, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews) {
+    const body = {id, name, url, username, download, description, type, duration, bitdepth, bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews}
     fetch('/api/saveSample', {
       method: 'POST',
       body: JSON.stringify(body),
@@ -17,16 +17,14 @@ class Sample extends Component {
     }).then(res => res.json())
       .then(json => console.log(json))
       .catch(err => console.error(err));
-    
-  }
-  componentDidUpdate() {
   }
   
   render() {
     // prevents two audio elements from playing simultaneously
     document.addEventListener('play', function(e){  
-      const audios = document.getElementsByTagName('audio');  
-      for(let i = 0, len = audios.length; i < len;i++){  
+      const audios = document.getElementsByTagName('audio');
+      const len = audios.length;
+      for(let i = 0; i < len; i++){  
           if(audios[i] != e.target){  
               audios[i].pause();  
           }
@@ -75,7 +73,7 @@ class Sample extends Component {
             this.props.name, 
             this.props.url, 
             this.props.username, 
-            this.props.download_url, 
+            this.props.download, 
             this.props.description,
             this.props.type,
             this.props.duration,

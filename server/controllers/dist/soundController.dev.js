@@ -60,7 +60,7 @@ soundController.saveSample = function (req, res, next) {
 
     var query = {
       text: 'INSERT INTO samples (sample_id, name, url, username, download_url, description, type, duration, bitdepth, bitrate, sample_rate, file_size, num_downloads, avg_rating, geotag, previews) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);',
-      values: [req.body.id, req.body.name, req.body.url, req.body.username, req.body.download_url, req.body.description, req.body.type, req.body.duration, req.body.bitdepth, req.body.bitrate, req.body.samplerate, req.body.filesize, req.body.num_downloads, req.body.avg_rating, req.body.geotag, req.body.previews]
+      values: [req.body.id, req.body.name, req.body.url, req.body.username, req.body.download, req.body.description, req.body.type, req.body.duration, req.body.bitdepth, req.body.bitrate, req.body.samplerate, req.body.filesize, req.body.num_downloads, req.body.avg_rating, req.body.geotag, req.body.previews]
     };
     db.query(query).then(function (data) {
       console.log(data);
