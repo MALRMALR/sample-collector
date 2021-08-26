@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {
   Redirect
 } from 'react-router-dom';
-
-import Login from './Login.jsx';
+import Cookies from 'js-cookie';
+// import Login from './Login.jsx';
+import Search from './Search.jsx';
 class Landing extends Component {
   constructor() {
     super();
@@ -11,9 +12,23 @@ class Landing extends Component {
       cookie: null
     }
   }
+
+  componentDidMount() {
+    const accessToken = Cookies.get('access_token');
+    if (accessToken) {
+      this.setState({
+        cookie: accessToken
+      });
+    }
+  }
   render() {
     if (this.state.cookie) {
-      return <Redirect to='/api/search' />
+      // return <Redirect to='/search' />;
+      return (
+        <div>
+          <Search cookie={this.state.cookie} />
+        </div>
+      )
     }
     return (
       <div>

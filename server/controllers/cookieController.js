@@ -5,13 +5,13 @@ cookieController.setTokenCookie = (req, res, next) => {
     console.log("set token cookie (cookieController.setTokenCookie): ");
     console.log(res.locals);
     res.cookie('access_token', res.locals.access_token, {
-      httpOnly: true,
-      secure: true,
+      // httpOnly: true,
+      // secure: true,
       maxAge: 86400000 // 24 hours in milliseconds
     })
     res.cookie('refresh_token', res.locals.refresh_token, {
-      httpOnly: true,
-      secure: true,
+      // httpOnly: true,
+      // secure: true,
       maxAge: 86400000
     });
     return next();

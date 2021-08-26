@@ -18,13 +18,8 @@ function App() {
           <Route path="/">
             <Landing />
           </Route>
-          {/* <Route render={() => {
-            <Redirect to={{pathname: '/search'}} />
-            }}
-          >  */}
-          <Route path="/api/search" render={() => <div>wtf</div>} >
+          <Route path="/search">
             <Search />
-            
           </Route>
         </Switch>
       </Router>

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('./../controllers/userController');
 const cookieController = require('./../controllers/cookieController');
+const soundController = require('./../controllers/soundController');
 require('dotenv').config();
 
 // login link from client - step 1 FS authentication
@@ -20,17 +21,18 @@ router.get('/login/success',
   // otherwise, create new user
   // userController.createUser,
   (req, res) => {
-    // res.status(200).redirect('/api/search');
-    res.redirect('/api/search');
+    // redirects to Landing page.
+    res.redirect('/');
 });
 
-router.get('/search', 
-
+// do i need this or can i send it on the front end?
+router.post('/search', 
+  soundController.searchSamples,
   (req, res) => {
-    // res.status(200).send('you\'re at the search route');
-    res.end();
-  }
-)
+
+});
+
+
 
 
 module.exports = router;
