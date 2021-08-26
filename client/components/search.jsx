@@ -18,26 +18,15 @@ class Search extends Component {
     }
     console.log(cookie);
     console.log(body);
-    // let reqHeaders = new Headers({'Authorization': 'Bearer ' + cookie});
-    // console.log(reqHeaders);
-    // const url = `https://freesound.org/apiv2/search/text/${query}`;
-    // console.log(url);
-    // fetch(url, {
-    //   method: 'POST',
-    //   headers: reqHeaders,
-    //   'Content-Type': 'application/json'
-    // })
-    //   .then(res => res.json())
-    //   .then(json => console.log(json))
-    //   .catch(err => console.error(err));
-      // should express handle this request?
-    console.log(JSON.stringify(body));
+
     fetch('/api/search', {
       method: 'POST',
-      body,
-      'Content-Type': 'application/json'
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     })
-      .then(res => res.json())
+      // .then(res => res.json())
       .then(json => console.log(json))
       .catch(err => console.error(err));
   }
