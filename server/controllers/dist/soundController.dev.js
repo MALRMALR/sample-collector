@@ -52,29 +52,20 @@ soundController.searchSamples = function _callee(req, res, next) {
   }, null, null, [[0, 10]]);
 };
 
-soundController.saveSample = function _callee2(req, res, next) {
-  return regeneratorRuntime.async(function _callee2$(_context2) {
-    while (1) {
-      switch (_context2.prev = _context2.next) {
-        case 0:
-          _context2.prev = 0;
-          console.log(req.body); // make db query
-          // first check if row exists
-          // if not save
+soundController.saveSample = function (req, res, next) {
+  try {
+    console.log('soundController.saveSample');
+    console.log(req.body); // make db query
+    // first check if row exists - if not, save new row
 
-          return _context2.abrupt("return", next());
-
-        case 5:
-          _context2.prev = 5;
-          _context2.t0 = _context2["catch"](0);
-          return _context2.abrupt("return", next(_context2.t0));
-
-        case 8:
-        case "end":
-          return _context2.stop();
-      }
-    }
-  }, null, null, [[0, 5]]);
+    var query = {
+      text: 'INSERT INTO samples',
+      values: []
+    };
+    return next();
+  } catch (err) {
+    return next(err);
+  }
 };
 
 module.exports = soundController;

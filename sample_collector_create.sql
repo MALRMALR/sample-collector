@@ -1,4 +1,4 @@
--- DROP TABLE public.users, public.sounds;
+DROP TABLE public.sounds;
 
 
 SET statement_timeout = 0;
@@ -24,8 +24,9 @@ SET row_security = off;
 --   OIDS=FALSE
 -- );
 
-CREATE TABLE public.sounds (
+CREATE TABLE public.samples (
   "_id" serial NOT NULL,
+  "sample_id" varchar NOT NULL,
   "name" varchar NOT NULL,
   "url" varchar NOT NULL,
   "username" varchar NOT NULL,

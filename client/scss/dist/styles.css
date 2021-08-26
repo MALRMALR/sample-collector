@@ -20,7 +20,7 @@ body {
 .sample-card p {
   max-height: 150px;
   overflow: scroll;
-  border: 1px solid #B7D1DA;
+  border: 1px solid #828c81;
   padding: 8px;
 }
 
@@ -30,8 +30,14 @@ body {
 
 .sample-card a {
   display: inline-block;
-  margin-right: 6px;
+  margin: 0 3px;
   font-size: 14px;
+  color: #E2E8DD;
+  transition: color 0.1s ease-in;
+}
+
+.sample-card a:hover {
+  color: #4e5340;
 }
 
 .sample-card button, #search-button {

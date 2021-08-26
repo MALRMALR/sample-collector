@@ -6,10 +6,19 @@ class Sample extends Component {
     this.saveSample = this.saveSample.bind(this);
   }
 
-  saveSample(id) {
-    console.log(id);
+  saveSample(id, name, url, username, download_url, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag) {
+    const body = {id, name, url, username, download_url, description, type, duration, bitdepth, bitrate, samplerate, filesize, num_downloads, avg_rating, geotag}
+    fetch('/api/saveSample', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+      .then(json => console.log(json))
+      .catch(err => console.error(err));
+    
   }
-
   componentDidUpdate() {
   }
   
@@ -60,7 +69,24 @@ class Sample extends Component {
           <h4>File Description:</h4>
           <p>{this.props.description}</p>
         {/* <button id="load-button" onClick={() => this.loadSample(this.props.id)}>Load Sample</button> */}
-        <button id="save-button">Save Sample</button>
+        <button id="save-button" onClick={() => { 
+          this.saveSample(
+            this.props.id, 
+            this.props.name, 
+            this.props.url, 
+            this.props.username, 
+            this.props.download_url, 
+            this.props.description,
+            this.props.type,
+            this.props.duration,
+            this.props.bitdepth,
+            this.props.bitrate,
+            this.props.samplerate,
+            this.props.filesize,
+            this.props.num_downloads,
+            this.props.avg_rating,
+            this.props.geotag) 
+        }}>Save Sample</button>
       </div>
     )
   }

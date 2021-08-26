@@ -31,14 +31,18 @@ soundController.searchSamples = async (req, res, next) => {
   }
 }
 
-soundController.saveSample = async (req, res, next) => {
+soundController.saveSample = (req, res, next) => {
   try {
+    console.log('soundController.saveSample');
     console.log(req.body);
     // make db query
-    // first check if row exists
+    // first check if row exists - if not, save new row
+    const query = {
+      text: 'INSERT INTO samples',
+      values: []
+    };
 
-    // if not save
-    
+
 
     return next();
   } catch (err) {
