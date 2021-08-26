@@ -47,7 +47,7 @@ class Search extends Component {
       const { items } = this.state;
       let searchResults = items.map((item, index) => {
         // build out as a component
-        return <li key={index}>{item.name}</li>
+        return <li key={index}>{item.id} - {item.name} - uploader: {item.username}</li>
       });
       return(
         <div>
