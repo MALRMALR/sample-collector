@@ -19,7 +19,10 @@ soundController.searchSamples = async (req, res, next) => {
       }
     })
       .then(res => res.json())
-      .then(json => console.log(json))
+      .then(json => {
+        console.log(json)
+        res.locals.data = json;
+      })
       .catch(err => console.error(err));
 
     return next();

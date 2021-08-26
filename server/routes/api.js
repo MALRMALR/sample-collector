@@ -29,8 +29,7 @@ router.get('/login/success',
 router.post('/search',
   soundController.searchSamples,
   (req, res) => {
-    // console.log(req.body);
-    res.end();
+    res.json(res.locals.data);
 });
 
 
