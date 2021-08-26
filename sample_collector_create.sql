@@ -1,4 +1,4 @@
-DROP TABLE public.sounds;
+DROP TABLE public.samples;
 
 
 SET statement_timeout = 0;
@@ -43,7 +43,8 @@ CREATE TABLE public.samples (
   "avg_rating" decimal,
   "num_ratings" integer,
   "comment" varchar,
-  "geotag" varchar
+  "geotag" varchar,
+  "previews" varchar
   -- CONSTRAINT "users_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE

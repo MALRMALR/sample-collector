@@ -39,6 +39,12 @@ router.post('/saveSample',
   }
 )
 
+router.get('/view-all',
+  soundController.viewSavedSamples,
+  (req, res) => {
+    res.json(res.locals.all_samples);
+  }
+)
 
 
 module.exports = router;

@@ -36,4 +36,7 @@ router.post('/search', soundController.searchSamples, function (req, res) {
 router.post('/saveSample', soundController.saveSample, function (req, res) {
   res.json(res.locals.sample);
 });
+router.get('/view-all', soundController.viewSavedSamples, function (req, res) {
+  res.json(res.locals.all_samples);
+});
 module.exports = router;

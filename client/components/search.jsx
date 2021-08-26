@@ -14,7 +14,8 @@ class Search extends Component {
   }
 
   searchFreesound(e) {
-    const query = e.target.previousSibling.nextSibling.previousSibling.childNodes[1].value;
+    console.log(e.target.previousSibling.nextSibling.previousSibling.childNodes[0].value);
+    const query = e.target.previousSibling.nextSibling.previousSibling.childNodes[0].value;
     console.log(query);
     
     const cookie = this.props.cookie;
@@ -54,7 +55,7 @@ class Search extends Component {
                 name={item.name}
                 description={item.description}
                 url={item.url}
-                previews={item.previews}
+                previews={item.previews['preview-hq-mp3']}
                 geotag={item.geotag}
                 type={item.type}
                 filesize={item.filesize}
@@ -71,7 +72,6 @@ class Search extends Component {
         <div>
           <h1>Search Samples:</h1>
             <label htmlFor="search">
-              Search:
               <input type="text" name="search" id="search" />
             </label>
             <input type="submit" value="Submit" id="search-button" onClick={(e) => this.searchFreesound(e)} />

@@ -5,11 +5,13 @@ import {
 import Cookies from 'js-cookie';
 // import Login from './Login.jsx';
 import Search from './Search.jsx';
+import Saved from './Saved.jsx';
 class Landing extends Component {
   constructor() {
     super();
     this.state = {
-      cookie: null
+      cookie: null,
+      redirect: null
     }
   }
 
@@ -17,23 +19,25 @@ class Landing extends Component {
     const accessToken = Cookies.get('access_token');
     if (accessToken) {
       this.setState({
-        cookie: accessToken
+        cookie: accessToken,
+        redirect: 'search'
       });
     }
   }
-  
+
   render() {
-    if (this.state.cookie) {
+    if (this.state.cookie && this.state.redirect === 'search') {
       // return <Redirect to='/search' />;
       return (
         <div>
+          <Saved />
           <Search cookie={this.state.cookie} />
         </div>
       )
     }
     return (
       <div>
-          <h1>Sample Collector</h1>
+          {/* <h1>Sample Collector</h1> */}
           <a href="http://localhost:3000/api/login">Log In</a>
           {/* <Login /> */}
       </div>

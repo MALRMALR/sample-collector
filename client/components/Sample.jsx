@@ -6,8 +6,8 @@ class Sample extends Component {
     this.saveSample = this.saveSample.bind(this);
   }
 
-  saveSample(id, name, url, username, download_url, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag) {
-    const body = {id, name, url, username, download_url, description, type, duration, bitdepth, bitrate, samplerate, filesize, num_downloads, avg_rating, geotag}
+  saveSample(id, name, url, username, download_url, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews) {
+    const body = {id, name, url, username, download_url, description, type, duration, bitdepth, bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews}
     fetch('/api/saveSample', {
       method: 'POST',
       body: JSON.stringify(body),
@@ -35,13 +35,13 @@ class Sample extends Component {
 
     return (  
       <div className='sample-card'>
-        <audio controls preload="none" src={this.props.previews['preview-hq-mp3']}></audio>
+        <audio controls preload="none" src={this.props.previews}></audio>
         <h4>{this.props.name}</h4>
         <div>
-        <a href={this.props.url} target="_blank" class="sample-card-url">
+        <a href={this.props.url} target="_blank" className="sample-card-url">
           View on Freesound.org
         </a> |
-        <a href={this.props.download} class="sample-card-url">
+        <a href={this.props.download} className="sample-card-url">
           {/* {this.props.download} */}
           Download Audio File
         </a>
@@ -85,7 +85,8 @@ class Sample extends Component {
             this.props.filesize,
             this.props.num_downloads,
             this.props.avg_rating,
-            this.props.geotag) 
+            this.props.geotag, 
+            this.props.previews)
         }}>Save Sample</button>
       </div>
     )
