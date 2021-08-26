@@ -45,16 +45,7 @@ class App extends Component {
     //   console.log(searchResults);
       return(
         <div>
-          <div>
-            <h1>Sample Collector</h1>
-            <a href="http://localhost:3000/api/login">Log In</a>
-            <button id="sign-up">Sign Up</button>
-          </div>
-          {/* hard coded search results from fetch req above */}
-          {/* <h1>Search Results: </h1>
-            <ul>
-              {searchResults}
-            </ul> */}
+          
         </div>
       )
     // }

@@ -2,7 +2,7 @@ const cookieController = {};
 
 cookieController.setTokenCookie = (req, res, next) => {
   try {
-    console.log("set token cookie");
+    console.log("set token cookie (cookieController.setTokenCookie): ");
     console.log(res.locals);
     res.cookie('access_token', res.locals.access_token, {
       httpOnly: true,

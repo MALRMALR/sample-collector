@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const userController = require('./../controllers/userController');
 const cookieController = require('./../controllers/cookieController');
-const fetch = require('node-fetch');
 require('dotenv').config();
 
 // login link from client - step 1 FS authentication
@@ -14,19 +13,22 @@ router.get('/login', (req, res) => {
 
 // callback url - endpoint browser gets redirected to once users successfully login on freesound site - step 2 FS authenticaton
 router.get('/login/success', 
-  userController.fetchAccessToken,
-  cookieController.setTokenCookie,
+  userController.fetchAccessToken,  // POST request - access token
+  cookieController.setTokenCookie,  // sets cookies
   // now that we have access token, verify if user already exists
-
+  // userController.verifyUser,
   // otherwise, create new user
+  // userController.createUser,
   (req, res) => {
-    res.status(200).redirect('/api/search');
+    // res.status(200).redirect('/api/search');
+    res.redirect('/api/search');
 });
 
 router.get('/search', 
 
   (req, res) => {
-    res.status(200).send('you\'re at the search route');
+    // res.status(200).send('you\'re at the search route');
+    res.end();
   }
 )
 

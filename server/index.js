@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const apiRouter = require('./routes/api.js');
+const cookieParser = require('cookie-parser');
 
 const PORT = 3000;
 
@@ -13,15 +14,24 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 // recognize incoming req objects as JSON objects
 app.use(express.json());
+// cookie parser
+app.use(cookieParser());
 
 // '/api' routes
 app.use('/api', apiRouter);
 
 // routes
-app.get('/', (req, res) => {
-  res.status(200).end();
-});
-
+// app.get('/*', (req, res) => {
+//   return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+// })
+if (process.env.NODE_ENV === 'production') {
+  // statically serve everything in the build folder on the route '/build'
+  app.use('/build', express.static(path.join(__dirname, '../build')));
+  // serve index.html on the route '/'
+  app.get('/', (req, res) => {
+    return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+  });
+}
 
 
 

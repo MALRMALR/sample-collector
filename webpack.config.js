@@ -17,6 +17,7 @@ module.exports = {
     },
     compress: true,
     hot: true,
+    // historyApiFallback: true, // this will server index.html in place of 404 responses
     headers: {"Access-Control-Allow-Origin": "*"},
     proxy: {
       '/api': {
