@@ -48,7 +48,24 @@ class Search extends Component {
   render() {
       const { items } = this.state;
       let searchResults = items.map((item, index) => {
-        return <Sample key={index} id={item.id} name={item.name} username={item.username} />
+        return <Sample 
+                key={index}
+                id={item.id}
+                name={item.name}
+                description={item.description}
+                url={item.url}
+                previews={item.previews}
+                geotag={item.geotag}
+                type={item.type}
+                filesize={item.filesize}
+                duration={item.duration}
+                samplerate={item.samplerate}
+                bitrate={item.bitrate}
+                bitdepth={item.bitdepth}
+                download={item.download}
+                num_downloads={item.num_downloads}
+                avg_rating={item.avg_rating}
+                username={item.username}/>
       });
       return(
         <div>

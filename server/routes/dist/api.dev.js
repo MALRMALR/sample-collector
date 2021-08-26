@@ -33,4 +33,7 @@ function (req, res) {
 router.post('/search', soundController.searchSamples, function (req, res) {
   res.json(res.locals.data);
 });
+router.post('/loadSample', soundController.loadSample, function (req, res) {
+  res.json(res.locals.sample);
+});
 module.exports = router;

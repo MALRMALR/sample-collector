@@ -1,3 +1,6 @@
+-- DROP TABLE public.users, public.sounds;
+
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -10,21 +13,23 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 
-CREATE TABLE public.users (
-  "_id" serial NOT NULL,
-  "first_name" varchar NOT NULL,
-  "last_name" varchar NOT NULL,
-  "email" varchar,
-  "access_token" varchar,
-  "refresh_token" varchar
-) WITH (
-  OIDS=FALSE
-);
+-- CREATE TABLE public.users (
+--   "_id" serial NOT NULL,
+--   "first_name" varchar NOT NULL,
+--   "last_name" varchar NOT NULL,
+--   "email" varchar,
+--   "access_token" varchar,
+--   "refresh_token" varchar
+-- ) WITH (
+--   OIDS=FALSE
+-- );
 
 CREATE TABLE public.sounds (
   "_id" serial NOT NULL,
   "name" varchar NOT NULL,
+  "url" varchar NOT NULL,
   "username" varchar NOT NULL,
+  "download_url" varchar,
   "description" varchar,
   "pack" varchar,
   "type" varchar,
@@ -37,7 +42,8 @@ CREATE TABLE public.sounds (
   "avg_rating" decimal,
   "num_ratings" integer,
   "comment" varchar,
-  CONSTRAINT "users_pk" PRIMARY KEY ("_id")
+  "geotag" varchar
+  -- CONSTRAINT "users_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
 );
