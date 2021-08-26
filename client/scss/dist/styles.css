@@ -12,13 +12,26 @@ body {
 .sample-card {
   border: 2px solid #B7D1DA;
   background-color: #697268;
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
   border-radius: 5px;
 }
 
+.sample-card p {
+  max-height: 150px;
+  overflow: scroll;
+  border: 1px solid #B7D1DA;
+  padding: 8px;
+}
+
 .sample-card li {
   word-wrap: break-word;
+}
+
+.sample-card a {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 14px;
 }
 
 .sample-card button, #search-button {

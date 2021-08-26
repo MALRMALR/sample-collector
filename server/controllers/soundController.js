@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const db = require('../models/sampleModel');
 const soundController = {};
 
 soundController.searchSamples = async (req, res, next) => {
@@ -30,11 +31,15 @@ soundController.searchSamples = async (req, res, next) => {
   }
 }
 
-soundController.loadSample = async (req, res, next) => {
+soundController.saveSample = async (req, res, next) => {
   try {
     console.log(req.body);
-    console.log(req.headers.cookies);
-    const url = `https://freesound.org/apiv2/sounds/${req.body.id}`;
+    // make db query
+    // first check if row exists
+
+    // if not save
+    
+
     return next();
   } catch (err) {
     return next(err);

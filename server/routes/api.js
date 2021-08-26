@@ -32,8 +32,8 @@ router.post('/search',
     res.json(res.locals.data);
 });
 
-router.post('/loadSample',
-  soundController.loadSample,
+router.post('/saveSample',
+  soundController.saveSample,
   (req, res) => {
     res.json(res.locals.sample);
   }

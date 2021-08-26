@@ -21,6 +21,7 @@ class Landing extends Component {
       });
     }
   }
+  
   render() {
     if (this.state.cookie) {
       // return <Redirect to='/search' />;
