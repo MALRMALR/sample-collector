@@ -25,11 +25,12 @@ router.get('/login/success',
     res.redirect('/');
 });
 
-// do i need this or can i send it on the front end?
+// do i need this or can i send it on the front end
 router.post('/search', 
   soundController.searchSamples,
   (req, res) => {
-
+    // console.log(req);
+    res.end();
 });
 
 

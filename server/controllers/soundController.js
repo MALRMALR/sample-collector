@@ -2,7 +2,7 @@ const soundController = {};
 
 soundController.searchSamples = (req, res, next) => {
   try {
-    console.log(req.body);
+    console.log(req);
     return next();
   } catch (err) {
 
