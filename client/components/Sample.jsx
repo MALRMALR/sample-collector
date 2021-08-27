@@ -62,11 +62,11 @@ class Sample extends Component {
         <ul>
           {/* <li>{this.props.id}</li> */}
           <li>File Type: {this.props.type}</li>
-          <li>File Size: {this.props.filesize / 1000 / 1000}</li>
+          <li>File Size: {this.props.filesize / 1000 / 1000} MB</li>
           <li>Bit Rate: {this.props.bitrate}</li>
           <li>Bit Depth: {this.props.bitdepth}</li>
-          <li>Duration: {this.props.duration}</li>
-          <li>Sample Rate: {this.props.samplerate}</li>
+          <li>Duration: {this.props.duration} seconds</li>
+          <li>Sample Rate: {this.props.samplerate} Hz</li>
           <li>Number of Downloads: {this.props.num_downloads}</li>
           <li>Average Rating: {this.props.avg_rating}</li>
           <li>Uploaded by: {this.props.username}</li>
