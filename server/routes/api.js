@@ -32,10 +32,17 @@ router.post('/search',
     res.json(res.locals.data);
 });
 
-router.post('/saveSample',
+router.post('/save-sample',
   soundController.saveSample,
   (req, res) => {
     res.json(res.locals.sample);
+  }
+)
+
+router.post('/delete-sample',
+  soundController.deleteSample,
+  (req, res) => {
+    res.json(res.locals.deleted);
   }
 )
 

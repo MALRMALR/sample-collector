@@ -8,13 +8,28 @@ class Sample extends Component {
 
   saveSample(id, name, url, username, download, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews) {
     const body = {id, name, url, username, download, description, type, duration, bitdepth, bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews}
-    fetch('/api/saveSample', {
+    fetch('/api/save-sample', {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
+      .then(json => console.log(json))
+      .catch(err => console.error(err));
+  }
+
+  deleteSample(name) {
+    const body = {name};
+    console.log(body);
+    fetch('/api/delete-sample', {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
       .then(json => console.log(json))
       .catch(err => console.error(err));
   }
@@ -46,28 +61,20 @@ class Sample extends Component {
         </div>
         <ul>
           {/* <li>{this.props.id}</li> */}
-          {/* <li>{this.props.name}</li> */}
-          {/* <li>Freesound URL: 
-          </li> */}
           <li>File Type: {this.props.type}</li>
           <li>File Size: {this.props.filesize / 1000 / 1000}</li>
           <li>Bit Rate: {this.props.bitrate}</li>
           <li>Bit Depth: {this.props.bitdepth}</li>
           <li>Duration: {this.props.duration}</li>
           <li>Sample Rate: {this.props.samplerate}</li>
-          {/* <li>Download URL: 
-          </li> */}
           <li>Number of Downloads: {this.props.num_downloads}</li>
           <li>Average Rating: {this.props.avg_rating}</li>
           <li>Uploaded by: {this.props.username}</li>
-          {/* <li>{this.props.previews['preview-hq-mp3']}</li> */}
-
           <li>Geotag: {this.props.geotag}</li>
         </ul>
           <h4>File Description:</h4>
           <p>{this.props.description}</p>
-        {/* <button id="load-button" onClick={() => this.loadSample(this.props.id)}>Load Sample</button> */}
-        <button id="save-button" onClick={() => { 
+        <button className="save-button" onClick={() => { 
           this.saveSample(
             this.props.id, 
             this.props.name, 
@@ -86,6 +93,10 @@ class Sample extends Component {
             this.props.geotag, 
             this.props.previews)
         }}>Save Sample</button>
+        <button className="delete-button" onClick={() => {
+          // console.log(this.props.id);
+          this.deleteSample(this.props.name)
+        }}>Delete Sample</button>
       </div>
     )
   }

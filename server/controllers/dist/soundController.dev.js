@@ -73,6 +73,27 @@ soundController.saveSample = function (req, res, next) {
   }
 };
 
+soundController.deleteSample = function (req, res, next) {
+  try {
+    console.log('soundController.deleteSample');
+    console.log(req.body); // make db query
+    // first check if row exists - if not, save new row
+
+    var query = {
+      text: 'DELETE FROM samples WHERE name = $1;',
+      values: [req.body.name]
+    };
+    db.query(query).then(function (data) {
+      console.log(data);
+      res.locals.deleted = data;
+      console.log(res.locals.deleted);
+      return next();
+    });
+  } catch (err) {
+    return next(err);
+  }
+};
+
 soundController.viewSavedSamples = function _callee2(req, res, next) {
   var query;
   return regeneratorRuntime.async(function _callee2$(_context2) {
@@ -83,10 +104,10 @@ soundController.viewSavedSamples = function _callee2(req, res, next) {
           query = 'SELECT * FROM samples;';
           _context2.next = 4;
           return regeneratorRuntime.awrap(db.query(query).then(function (data) {
-            console.log('soundController.viewSavedSamples data: ');
-            console.log(data);
-            res.locals.all_samples = data.rows;
-            console.log(res.locals.all_samples);
+            // console.log('soundController.viewSavedSamples data: ');
+            // console.log(data);
+            res.locals.all_samples = data.rows; // console.log(res.locals.all_samples);
+
             return next();
           }));
 

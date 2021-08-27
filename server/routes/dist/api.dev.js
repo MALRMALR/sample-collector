@@ -33,8 +33,11 @@ function (req, res) {
 router.post('/search', soundController.searchSamples, function (req, res) {
   res.json(res.locals.data);
 });
-router.post('/saveSample', soundController.saveSample, function (req, res) {
+router.post('/save-sample', soundController.saveSample, function (req, res) {
   res.json(res.locals.sample);
+});
+router.post('/delete-sample', soundController.deleteSample, function (req, res) {
+  res.json(res.locals.deleted);
 });
 router.get('/view-all', soundController.viewSavedSamples, function (req, res) {
   res.json(res.locals.all_samples);

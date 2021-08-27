@@ -69,7 +69,7 @@ class Search extends Component {
                 username={item.username}/>
       });
       return(
-        <div>
+        <div id="search-component">
           <h1>Search Samples:</h1>
             <label htmlFor="search">
               <input type="text" name="search" id="search" />

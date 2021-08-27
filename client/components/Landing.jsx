@@ -36,8 +36,7 @@ class Landing extends Component {
       )
     }
     return (
-      <div>
-          {/* <h1>Sample Collector</h1> */}
+      <div id="main-login">
           <a href="http://localhost:3000/api/login">Log In</a>
           {/* <Login /> */}
       </div>

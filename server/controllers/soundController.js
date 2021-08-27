@@ -49,7 +49,28 @@ soundController.saveSample = (req, res, next) => {
       return next();
     });
 
+  } catch (err) {
+    return next(err);
+  }
+}
 
+soundController.deleteSample = (req, res, next) => {
+  try {
+    console.log('soundController.deleteSample');
+    console.log(req.body);
+    // make db query
+    // first check if row exists - if not, save new row
+    const query = {
+      text: 'DELETE FROM samples WHERE name = $1;',
+      values: [req.body.name]
+    };
+
+    db.query(query).then(data => {
+      console.log(data);
+      res.locals.deleted = data;
+      console.log(res.locals.deleted);
+      return next();
+    });
 
   } catch (err) {
     return next(err);
@@ -60,10 +81,10 @@ soundController.viewSavedSamples = async (req, res, next) => {
   try {
     const query = 'SELECT * FROM samples;';
     await db.query(query).then(data => {
-      console.log('soundController.viewSavedSamples data: ')
-      console.log(data);
+      // console.log('soundController.viewSavedSamples data: ');
+      // console.log(data);
       res.locals.all_samples = data.rows;
-      console.log(res.locals.all_samples);
+      // console.log(res.locals.all_samples);
       return next();
     })
 

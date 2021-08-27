@@ -24,7 +24,7 @@ class Saved extends Component {
       })
       .catch(err => console.error(err));
   }
-  
+
   render() {
     const { samples } = this.state;
     const sampleElems = samples.map((sample, i) => {

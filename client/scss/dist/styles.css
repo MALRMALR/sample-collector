@@ -28,6 +28,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   font-size: 20px;
+  max-width: 350px;
 }
 
 .sample-card p {
@@ -53,6 +54,11 @@ body {
   color: #4e5340;
 }
 
+.sample-card h4 {
+  text-shadow: 2px 2px #2f3927;
+  letter-spacing: 2px;
+}
+
 .sample-card button, #search-button {
   background-color: #95A3A4;
   color: #E2E8DD;
@@ -64,22 +70,17 @@ body {
   border: 1px solid #fff;
 }
 
-#save-button {
+.save-button {
   background-color: #E2E8DD;
   color: #95A3A4;
 }
 
-#load-button {
-  background-color: #95A3A4;
-  color: #E2E8DD;
-}
-
-.sample-card #save-button:hover {
+.sample-card .save-button:hover {
   background-color: #4a5556;
   color: white;
 }
 
-.sample-card #load-button:hover, #search-button:hover {
+#search-button:hover, .delete-button:hover {
   background-color: #E2E8DD;
   color: #323a3b;
 }
@@ -96,4 +97,27 @@ body {
 
 #saved-samples button {
   display: none;
+}
+
+#saved-samples .delete-button {
+  display: block;
+}
+
+#search-component .delete-button {
+  display: none;
+}
+
+#main-login {
+  text-align: center;
+  margin-top: 200px;
+}
+
+#main-login a {
+  color: #E2E8DD;
+  font-size: 40px;
+  transition: color 0.1s ease-in;
+}
+
+#main-login a:hover {
+  color: #617650;
 }
