@@ -4,6 +4,10 @@ class Sample extends Component {
   constructor(props) {
     super(props);
     this.saveSample = this.saveSample.bind(this);
+    this.deleteSample = this.deleteSample.bind(this);
+    this.state = {
+      samples: []
+    }
   }
 
   saveSample(id, name, url, username, download, description, type, duration, bitdepth,bitrate, samplerate, filesize, num_downloads, avg_rating, geotag, previews) {
@@ -15,7 +19,12 @@ class Sample extends Component {
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
-      .then(json => console.log(json))
+      .then(json => {
+        console.log(json);
+        this.setState({
+          samples: json
+        })
+      })
       .catch(err => console.error(err));
   }
 

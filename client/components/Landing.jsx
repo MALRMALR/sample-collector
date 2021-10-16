@@ -11,7 +11,8 @@ class Landing extends Component {
     super();
     this.state = {
       cookie: null,
-      redirect: null
+      redirect: null,
+      samples: []
     }
   }
 
@@ -25,13 +26,14 @@ class Landing extends Component {
     }
   }
 
+
   render() {
     if (this.state.cookie && this.state.redirect === 'search') {
       // return <Redirect to='/search' />;
       return (
         <div>
           <Search cookie={this.state.cookie} />
-          <Saved />
+          {/* <Saved /> */}
         </div>
       )
     }

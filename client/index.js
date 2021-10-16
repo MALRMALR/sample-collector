@@ -18,22 +18,25 @@ function App() {
     <div>
       <Router>
         {/* menu navigation */}
-        {/* <div>
+        <div>
           <ul>
             <li>
               <Link to="/view">View Saved Samples</Link>
             </li>
+            <li>
+              <Link to="/search">Search</Link>
+            </li>
           </ul>
-        </div> */}
+        </div>
         {/* routing */}
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Landing />
           </Route>
-          <Route path="/search">
+          <Route exact path="/search">
             <Search />
           </Route>
-          <Route path="/view">
+          <Route exact path="/view">
             <Saved />
           </Route>
         </Switch>
